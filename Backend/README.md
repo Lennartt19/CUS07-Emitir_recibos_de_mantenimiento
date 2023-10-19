@@ -1,2 +1,3 @@
-# CONDOSA_G6
-Proyecto CONDOSA, CUS-07: Emitir recibos de mantenimiento (Principal)
+# CONDOSA_G6 (2023-II)
+Proyecto CONDOSA 
+CUS-07: Emitir recibos de mantenimiento
