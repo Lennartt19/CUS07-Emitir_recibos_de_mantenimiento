@@ -1,14 +1,10 @@
-from src.database.db import db
-from src import init_app
-from flask_cors import CORS
+from app import app
+from utils.db import db
+from utils.ma import ma
 
-app = init_app()
+with app.app_context():
+    db.create_all()
+    ma.init_app(app)
 
-db.init_app(app)
-
-app.app_context().push()
-
-CORS(app)
-
-if __name__ == '__main__': 
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True, host="0.0.0.0")
