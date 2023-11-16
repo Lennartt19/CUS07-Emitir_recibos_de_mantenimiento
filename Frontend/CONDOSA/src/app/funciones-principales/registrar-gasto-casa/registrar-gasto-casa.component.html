@@ -1,7 +1,9 @@
 <div class="subseccion-titulo">
-  <p class="mp-0"><b>
+  <p class="mp-0">
+    <b>
       Registrar gastos de casa
-    </b></p>
+    </b>
+  </p>
 </div>
 <div class="subseccion-1">
   <div class="col">
@@ -88,7 +90,7 @@
             </div>
             <div class="col-5" style="width: 35%;">
               <input type="number" name="importe_casa" id="importe_casa" placeholder="S/." class="form-control"
-                style="width: 100%; height: 40px;">
+                     style="width: 100%; height: 40px;">
             </div>
           </div>
           <div class="row" style="height: 5vh;">
@@ -140,11 +142,14 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let gasto of gatosRegistradosCasa">
-                      <td>{{ gasto.TipoGasto}}</td>
-                      <td>{{ gasto.Monto }}</td>
+                      <td>{{ gasto.TipoGasto }}</td>
                       <td>
-                        <button type="submit" class="btn btn-primary" style="width: 70px; height: 35px;">
-                          Editar
+                        <span *ngIf="gasto.Monto !== montoEditable">{{ gasto.Monto }}</span>
+                        <input *ngIf="gasto.Monto === montoEditable" type="number" [(ngModel)]="montoEditable" placeholder="{{ gasto.Monto }}" />
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-primary" (click)="editarMonto(gasto)">
+                          {{ montoEditable === null ? 'Editar' : 'Guardar' }}
                         </button>
                       </td>
                     </tr>
@@ -157,7 +162,7 @@
       </div>
       <div class="row" style="height: 10vh; display: flex; justify-content: center; align-items: center;">
         <button type="submit" class="btn btn-primary" style="width: 240px; height: 50px;"
-          (click)="finalizarRegistroCasa()">
+                (click)="finalizarRegistroCasa()">
           Finalizar registro de casa
         </button>
       </div>
