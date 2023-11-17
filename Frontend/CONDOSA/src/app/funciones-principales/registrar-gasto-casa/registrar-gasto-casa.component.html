@@ -89,15 +89,15 @@
               <p class="textoPricipal">Importe total</p>
             </div>
             <div class="col-5" style="width: 35%;">
-              <input type="number" name="importe_casa" id="importe_casa" placeholder="S/." class="form-control"
-                     style="width: 100%; height: 40px;">
+              <input type="number" name="importe_casa" id="importe_casa" [(ngModel)]="montoSeleccionado" class="form-control" style="width: 100%; height: 40px;" />
             </div>
           </div>
+
           <div class="row" style="height: 5vh;">
             <div class="col-2" style="width: 30%;">
             </div>
             <div class="col-5" style="width: 35%;">
-              <button type="submit" class="btn btn-primary" style="width: 100px; height: 40px">
+              <button type="submit" class="btn btn-primary" style="width: 100px; height: 40px" (click)="registrarGasto()">
                 Registrar
               </button>
             </div>
@@ -145,10 +145,10 @@
                       <td>{{ gasto.TipoGasto }}</td>
                       <td>
                         <span *ngIf="gasto.Monto !== montoEditable">{{ gasto.Monto }}</span>
-                        <input *ngIf="gasto.Monto === montoEditable" type="number" [(ngModel)]="montoEditable" placeholder="{{ gasto.Monto }}" />
+                        <input *ngIf="gasto.Monto === montoEditable" type="number" [value]="montoEditable" #montoInput (input)="montoEditable = +montoInput.value" />
                       </td>
                       <td>
-                        <button type="button" class="btn btn-primary" (click)="editarMonto(gasto)">
+                        <button type="button" class="btn btn-primary" [disabled]="montoEditable !== null && montoSeleccionado !== null && montoEditable === montoSeleccionado" (click)="editarMonto(gasto)">
                           {{ montoEditable === null ? 'Editar' : 'Guardar' }}
                         </button>
                       </td>
@@ -158,14 +158,11 @@
               </div>
             </div>
           </div>
+          <div class="row" style="height: 10vh; display: flex; justify-content: center; align-items: center;">
+            <button type="submit" class="btn btn-primary" style="width: 240px; height: 50px;" (click)="finalizarRegistroCasa()">
+              Finalizar registro de casa
+            </button>
+          </div>
         </div>
       </div>
-      <div class="row" style="height: 10vh; display: flex; justify-content: center; align-items: center;">
-        <button type="submit" class="btn btn-primary" style="width: 240px; height: 50px;"
-                (click)="finalizarRegistroCasa()">
-          Finalizar registro de casa
-        </button>
-      </div>
     </div>
-  </div>
-</div>

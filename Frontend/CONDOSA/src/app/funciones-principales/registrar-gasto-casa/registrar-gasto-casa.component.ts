@@ -16,8 +16,7 @@ export class RegistrarGastoCasaComponent implements OnInit {
   id_casa_selected: string = '';
 
   montoEditable: number | null = null;
-
-
+  montoSeleccionado: number | null = null; // Nueva propiedad para almacenar el monto seleccionado
 
   listaTipoGastoCasas: any[] = ['Gasto generico', 'Sanciones'];
   listaDescripcionCasas: any[] = ['Agua', 'Luz y Electricidad'];
@@ -70,8 +69,17 @@ export class RegistrarGastoCasaComponent implements OnInit {
     this.mostrarRegistroCasa_OUT.emit(item);
   }
 
+  registrarGasto() {
+    // Obtén el monto correspondiente al tipo de gasto seleccionado
+    const tipoGastoSeleccionado = 'Gasto de agua individual'; // Cambia esto según tu lógica
+    const gastoEncontrado = this.gatosRegistradosCasa.find(gasto => gasto.TipoGasto === tipoGastoSeleccionado);
+
+    // Asigna el monto encontrado a la propiedad montoSeleccionado
+    this.montoSeleccionado = gastoEncontrado ? gastoEncontrado.Monto : null;
+  }
+
   finalizarRegistroCasa() {
-    // Aca iria el metodo para modificar la tabla ESTADO_REGISTRO_PREDIO de la BD
+    // Aca iría el método para modificar la tabla ESTADO_REGISTRO_PREDIO de la BD
     localStorage.setItem('gastosRegistradosCasa', JSON.stringify(this.gatosRegistradosCasa));
     alert('Se han actualizado correctamente los gastos');
     window.location.reload();
@@ -81,12 +89,12 @@ export class RegistrarGastoCasaComponent implements OnInit {
     if (this.montoEditable === null) {
       // Si no se está editando ningún monto, permite la edición para este gasto
       this.montoEditable = gasto.Monto;
+      this.montoSeleccionado = gasto.Monto; // Agregamos esta línea para almacenar el monto original
     } else {
       // Si se está editando algún monto, guarda los cambios y limpia la variable editable
       gasto.Monto = this.montoEditable;
       this.montoEditable = null;
+      this.montoSeleccionado = null; // Limpiamos la variable montoSeleccionado
     }
   }
-
 }
-
