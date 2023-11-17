@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --blue-navy: rgb(0, 0, 128);
+  --blue-navy-clr: rgba(0, 0, 128, 0.8);
+  --blue-navy-clrclr: rgba(0, 0, 128, 0.6);
+
+  --color-fondo: rgb(244, 244, 244);
+  ;
+}
+
+.seccion-principal-fondo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #e9e9e9;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.textoPricipal {
+  font-size: 1.25rem;
+  margin: 0.2rem;
+  font-weight: bold;
+}
+/*TABLA GLOBAL*/
+
+:root {
+  --finalizado-color: green;
+  --no-finalizado-color: red;
+  --box-shadow-finalizado: 0 0 5px 2px rgba(0, 255, 0, 0.8);
+  --box-shadow-no-finalizado: 0 0 5px 2px rgba(255, 0, 0, 0.8);
+}
