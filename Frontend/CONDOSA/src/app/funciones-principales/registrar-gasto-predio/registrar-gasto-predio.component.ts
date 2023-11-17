@@ -111,13 +111,11 @@ export class RegistrarGastoPredioComponent implements OnInit {
   }
 
   gastoRegistrado() {
-    const gastoRegistrado01 = this.gastosRegistradosArray.filter((gasto) => gasto.id_gasto === this.id_gasto);
-    if(gastoRegistrado01.length > 0){
-      return true;
+    if (this.gastosRegistradosArray && Array.isArray(this.gastosRegistradosArray)) {
+      const gastoRegistrado01 = this.gastosRegistradosArray.filter((gasto) => gasto.id_gasto === this.id_gasto);
+      return gastoRegistrado01.length > 0;
     }
-    else{
-      return false;
-    }
+    return false;
   }
 
 
