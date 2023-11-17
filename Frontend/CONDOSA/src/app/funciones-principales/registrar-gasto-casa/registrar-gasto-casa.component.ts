@@ -22,39 +22,38 @@ export class RegistrarGastoCasaComponent implements OnInit {
   listaDescripcionCasas: any[] = ['Agua', 'Luz y Electricidad'];
 
   gatosRegistradosCasa: any[] = [
-    { TipoGasto: 'Gasto de agua individual', Monto: 30 },
+    { TipoGasto: 'Gasto de agua individual', Monto: 30},
     { TipoGasto: 'Administración y contabilidad ', Monto: 66 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 12.3 },
-    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605', Monto: 12.3 },
-    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613', Monto: 12.3 },
-    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 30.5 },
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 12.3},
+    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605',  Monto: 12.3 },
+    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613',  Monto: 12.3},
+    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 30.5},
     { TipoGasto: 'Administración y contabilidad ', Monto: 66.0 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 12.3 },
-    { TipoGasto: 'Maltratar-faltar el respeto al personal', Monto: 12.3 },
-    { TipoGasto: 'Utilizar el estacionamiento como depocito', Monto: 12.3 }
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 12.3},
+    { TipoGasto: 'Maltratar-faltar el respeto al personal',  Monto: 12.3},
+    { TipoGasto: 'Utilizar el estacionamiento como depocito',  Monto: 12.3}
   ];
 
   gatosRegistradosPredio: any[] = [
-    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305 },
+    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305},
     { TipoGasto: 'Administración y contabilidad ', Monto: 660 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613', Monto: 123 },
-    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305 },
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 123},
+    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605',  Monto: 123 },
+    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613',  Monto: 123},
+    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305},
     { TipoGasto: 'Administración y contabilidad ', Monto: 660 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613', Monto: 123 },
-    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305 },
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 123},
+    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605',  Monto: 123 },
+    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613',  Monto: 123},
+    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305},
     { TipoGasto: 'Administración y contabilidad ', Monto: 660 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613', Monto: 123 },
-    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305 },
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 123},
+    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605',  Monto: 123 },
+    { TipoGasto: 'Planilla (portería- áreas comunes- limpieza)', Monto: 305},
     { TipoGasto: 'Administración y contabilidad ', Monto: 660 },
-    { TipoGasto: 'Teléfono fijo e internet', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605', Monto: 123 },
-    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613', Monto: 123 }
+    { TipoGasto: 'Teléfono fijo e internet',  Monto: 123},
+    { TipoGasto: 'Consumo de Luz Mensual SS-GG -Suministro 1695605',  Monto: 123 },
+    { TipoGasto: 'Consumo de Luz Mensual BCI -Suministro 1695613',  Monto: 123}
   ];
 
   ngOnInit() {
@@ -75,10 +74,10 @@ export class RegistrarGastoCasaComponent implements OnInit {
       alert('Por favor, seleccione una descripción antes de registrar el gasto.');
       return;
     }
-
+  
     // Obtén el monto correspondiente al tipo de gasto seleccionado
     let tipoGastoSeleccionado: string;
-
+  
     if (this.listaDescripcionCasas.includes('Agua')) {
       tipoGastoSeleccionado = 'Gasto de agua individual';
     } else if (this.listaDescripcionCasas.includes('Luz y Electricidad')) {
@@ -88,9 +87,9 @@ export class RegistrarGastoCasaComponent implements OnInit {
       console.error('Descripción no reconocida:', this.listaDescripcionCasas);
       return;
     }
-
+  
     const gastoEncontrado = this.gatosRegistradosCasa.find(gasto => gasto.TipoGasto === tipoGastoSeleccionado);
-
+  
     // Asigna el monto encontrado a la propiedad montoSeleccionado
     this.montoSeleccionado = gastoEncontrado ? gastoEncontrado.Monto : null;
   }
