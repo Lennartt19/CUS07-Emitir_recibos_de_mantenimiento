@@ -133,8 +133,10 @@ export class FuncionesPrincipalesComponent implements OnInit {
 
       this.selectedTextPeriodo = '--seleccione--';
       this.id_selectedPeriodo = '';
-      this.casasArray.splice(0, this.casasArray.length);
-      this.predioArray.splice(0, this.casasArray.length);
+      
+      this.casasArray = [];
+      this.predioArray = [];
+
       this.getCasas_BD(this.id_selectedPredio);
       this.getPeriodos_BD(item);
 
