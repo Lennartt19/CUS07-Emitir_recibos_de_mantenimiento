@@ -70,8 +70,25 @@ export class RegistrarGastoCasaComponent implements OnInit {
   }
 
   registrarGasto() {
+    // Verifica que se haya seleccionado una descripción y un número de casa
+    if (this.num_casa_selected === '--N° Casa--' || !this.listaDescripcionCasas || this.listaDescripcionCasas.length === 0) {
+      alert('Por favor, seleccione una descripción antes de registrar el gasto.');
+      return;
+    }
+
     // Obtén el monto correspondiente al tipo de gasto seleccionado
-    const tipoGastoSeleccionado = 'Gasto de agua individual'; // Cambia esto según tu lógica
+    let tipoGastoSeleccionado: string;
+
+    if (this.listaDescripcionCasas.includes('Agua')) {
+      tipoGastoSeleccionado = 'Gasto de agua individual';
+    } else if (this.listaDescripcionCasas.includes('Luz y Electricidad')) {
+      tipoGastoSeleccionado = 'Consumo de Luz Mensual SS-GG -Suministro 1695605';
+    } else {
+      // Manejo de caso por defecto si no coincide con ninguna descripción conocida
+      console.error('Descripción no reconocida:', this.listaDescripcionCasas);
+      return;
+    }
+
     const gastoEncontrado = this.gatosRegistradosCasa.find(gasto => gasto.TipoGasto === tipoGastoSeleccionado);
 
     // Asigna el monto encontrado a la propiedad montoSeleccionado
