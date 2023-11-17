@@ -87,27 +87,16 @@
               <p class="textoPricipal">Importe total</p>
             </div>
             <div class="col-5" style="width: 35%;">
-              <input type="number" name="importe_casa" id="importe_casa" placeholder="S/." class="form-control"
-                style="width: 100%; height: 40px;">
+              <input type="number" name="importe_casa" id="importe_casa" [(ngModel)]="montoSeleccionado" class="form-control" style="width: 100%; height: 40px;" />
             </div>
           </div>
+          
           <div class="row" style="height: 5vh;">
             <div class="col-2" style="width: 30%;">
             </div>
             <div class="col-5" style="width: 35%;">
-              <button type="submit" class="btn btn-primary" style="width: 100px; height: 40px">
-                Registrar
-              </button>
-            </div>
-            <div class="col-5" style="width: 35%;">
-            </div>
-          </div>
-          <div class="row" style="height: 5vh;">
-            <div class="col-2" style="width: 30%;">
-            </div>
-            <div class="col-5" style="width: 35%;">
-              <button type="submit" class="btn btn-primary" style="width: 250px; height: 40px">
-                Asignar del mes anterior
+              <button type="submit" class="btn btn-primary" style="width: 160px; height: 40px" (click)="registrarGasto()">
+                Obtener Importe
               </button>
             </div>
             <div class="col-5" style="width: 35%;">
@@ -140,11 +129,14 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let gasto of gatosRegistradosCasa">
-                      <td>{{ gasto.TipoGasto}}</td>
-                      <td>{{ gasto.Monto }}</td>
+                      <td>{{ gasto.TipoGasto }}</td>
                       <td>
-                        <button type="submit" class="btn btn-primary" style="width: 70px; height: 35px;">
-                          Editar
+                        <span *ngIf="gasto.Monto !== montoEditable">{{ gasto.Monto }}</span>
+                        <input *ngIf="gasto.Monto === montoEditable" type="number" [value]="montoEditable" #montoInput (input)="montoEditable = +montoInput.value" />
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-primary" [disabled]="montoEditable !== null && montoSeleccionado !== null && montoEditable === montoSeleccionado" (click)="editarMonto(gasto)">
+                          {{ montoEditable === null ? 'Editar' : 'Guardar' }}
                         </button>
                       </td>
                     </tr>
@@ -153,14 +145,11 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row" style="height: 10vh; display: flex; justify-content: center; align-items: center;">
-        <button type="submit" class="btn btn-primary" style="width: 240px; height: 50px;"
-          (click)="finalizarRegistroCasa()">
-          Finalizar registro de casa
-        </button>
-      </div>
+          <div class="row" style="text-align: center;">
+            <button type="submit" class="btn btn-primary mx-auto" style="width: 240px; height: 50px;" (click)="finalizarRegistroCasa()">
+              Finalizar registro de casa
+            </button>
+          </div>
     </div>
   </div>
 </div>
