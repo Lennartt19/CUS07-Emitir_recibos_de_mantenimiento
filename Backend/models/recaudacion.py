@@ -1,4 +1,9 @@
 from utils.db import db
+from models.cuenta import Cuenta
+from models.mant_recibo import MantRecibo
+from models.tipo_moneda import TipoMoneda
+from models.recaudacion_estado import RecaudacionEstado
+from models.cuenta_predio import CuentaPredio
 
 class Recaudacion(db.Model):
     __tablename__ = 'recaudacion'

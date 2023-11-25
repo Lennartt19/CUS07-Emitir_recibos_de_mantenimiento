@@ -1,4 +1,6 @@
 from utils.db import db
+from models.tipo_documento import TipoDocumento
+from models.ubigeo import Ubigeo
 
 class Persona(db.Model):
     __tablename__ = 'persona'

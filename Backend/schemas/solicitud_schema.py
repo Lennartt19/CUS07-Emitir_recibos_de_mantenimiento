@@ -22,7 +22,7 @@ class SolicitudSchema(ma.SQLAlchemySchema):
                   'cant_administracion', 
                   'cant_jardineria', 
                   'fecha_solicitud', 
-                  'nombre_solicitante'
+                  'nombre_solicitante',
                   'predio',
                   'solicitante',
                   'servicio')

@@ -15,11 +15,9 @@ from flask_sqlalchemy import SQLAlchemy
 from config import DATABASE_CONNECTION_URI
 from flask_cors import CORS
 from utils.db import db
-from routes.RegistrarRecaudaciones.principal import principal
 from routes.RegistrarRecaudaciones.buscarRecibos import recibo
 from routes.RegistrarRecaudaciones.recaudaciones import recaudacion
-from routes.RegistrarRecaudaciones.vista import vista
-from routes.SeguirSolicitudCotizacion.vista_solicitud import vistasolicitud
+#from routes.SeguirSolicitudCotizacion.vista_solicitud import vistasolicitud
 from routes.SeguirSolicitudCotizacion.boleta import boleta
 from routes.SeguirSolicitudCotizacion.cotizaciones import cotizacion
 from routes.SeguirSolicitudCotizacion.index import index_vestibulo
@@ -37,11 +35,6 @@ from routes.EmitirRecibos.gasto_registrado import gasto_registrado
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-
-    return render_template('index.html')
-
         
 CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -57,9 +50,6 @@ app.config["SQLALCHEMY_POOL_RECYCLE"] = 1800
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 db.init_app(app)
-
-app.register_blueprint(vista)
-app.register_blueprint(principal)
 app.register_blueprint(recibo)    
 app.register_blueprint(recaudacion)
 app.register_blueprint(persona_routes)
@@ -74,7 +64,7 @@ app.register_blueprint(ubigeo_routes)
 app.register_blueprint(personal_routes)
 app.register_blueprint(area_comun_routes)
 app.register_blueprint(predio_area_comun_routes)
-app.register_blueprint(vistasolicitud)
+#app.register_blueprint(vistasolicitud)
 app.register_blueprint(boleta)
 app.register_blueprint(cotizacion)
 app.register_blueprint(index_vestibulo)
@@ -89,4 +79,5 @@ app.register_blueprint(predios)
 app.register_blueprint(registro_predio_estado)
 app.register_blueprint(tabla_casas)
 app.register_blueprint(tipo_gastos)
+
 

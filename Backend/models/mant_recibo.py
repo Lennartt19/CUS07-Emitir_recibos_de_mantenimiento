@@ -1,5 +1,6 @@
 from utils.db import db
-
+from models.recibo_estado import ReciboEstado
+from models.casa import Casa
 class MantRecibo(db.Model):
     __tablename__ = 'mant_recibo'
     id_mant_recibo = db.Column(db.Integer, primary_key=True)
@@ -17,7 +18,7 @@ class MantRecibo(db.Model):
     recibo_estado = db.relationship('ReciboEstado', backref='mantRecibo')
 
     def __init__(self, id_mant_recibo, id_casa, periodo, n_recibo, fecha_emision,
-                 fecha_vencimiento,importe, ajuste, observacion, id_recibo_estado):
+                 fecha_vencimiento,importe, ajuste, observacion, id_recibo_estado,casa,recibo_estado):
         self.id_mant_recibo = id_mant_recibo
         self.id_casa = id_casa
         self.periodo = periodo
@@ -28,3 +29,5 @@ class MantRecibo(db.Model):
         self.ajuste = ajuste
         self.observacion = observacion
         self.id_recibo_estado = id_recibo_estado
+        self.casa = casa
+        self.recibo_estado=recibo_estado

@@ -1,4 +1,7 @@
 from utils.db import db
+from models.solicitud import Solicitud
+from models.personal import Personal
+from models.estado import Estado
 
 class SolicitudCotizacion(db.Model):
     id_solicitud = db.Column(db.Integer, db.ForeignKey('solicitud.id_solicitud'))

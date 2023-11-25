@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template as rt
+from flask import Blueprint, render_template as rt  ,make_response,jsonify
 from models.solicitud import Solicitud
 from models.solicitud_cotizacion import SolicitudCotizacion
-from schemas.solicitud_schema import SolicitudSchema
-from schemas.solicitud_cotizacion_schema import SolicitudCotizacionSchema
+from schemas.solicitud_schema import solicitud_schema,solicitudes_schema
+from schemas.solicitud_cotizacion_schema import solicitud_cotizacion_schema,solicitudes_cotizacion_schema
 
 solicitud_cotizacion = Blueprint('solicitud_cotizacion', __name__, url_prefix="/solicitud") #al llamar el blue print en base sería (NomreBP.FuncionAsociadaARuta)
 
@@ -13,10 +13,15 @@ def cotizar(id_solicitud):
     
     if solicitud_cotizacion:
         cotizacion_realizada = "Realizada"
-        data = SolicitudCotizacionSchema().dump(solicitud_cotizacion)
+        data = solicitud_cotizacion_schema.dump(solicitud_cotizacion)
     else:
         cotizacion_realizada = "No realizada"
         solicitud=Solicitud.query.get(id_solicitud)
-        data = SolicitudSchema().dump(solicitud)
+        data = solicitud_schema.dump(solicitud)
     
+    responsep = {
+        'success': True,
+        'data': data
+    }
+    return make_response(jsonify(responsep),200)
     return rt("SeguirSolicitudCotizacion/cotizacion.html",data=data,cotizacion_realizada=cotizacion_realizada)

@@ -1,4 +1,8 @@
 from utils.db import db
+from models.persona import Persona
+from models.banco import Banco
+from models.tipo_moneda import TipoMoneda
+
 
 class Cuenta(db.Model):
     __tablename__ = 'cuenta'

@@ -1,4 +1,6 @@
 from utils.db import db
+from models.casa_estado import CasaEstado
+from models.predio import Predio
 
 class Casa(db.Model):
     __tablename__ = 'casa'

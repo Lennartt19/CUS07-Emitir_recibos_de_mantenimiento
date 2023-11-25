@@ -4,7 +4,7 @@ import glob
 
 def borrar_cache(excepciones):
     
-    carpeta_cache = route("DSW-ProyectoCondosa-main","\\static\\img\\cache")
+    carpeta_cache = route("PROYECTO-SIGCON","\\static\\img\\cache")
     
     
     for excepcion in excepciones:

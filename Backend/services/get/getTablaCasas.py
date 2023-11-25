@@ -21,4 +21,3 @@ def getTablaCasas(id):
         return casas
     except Exception as error:
         print(error)
-

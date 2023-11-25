@@ -1,4 +1,7 @@
 from utils.db import db
+from models.predio import Predio
+from models.solicitante import Solicitante
+from models.servicio import Servicio
 
 class Solicitud(db.Model):
     id_solicitud = db.Column(db.Integer, primary_key=True)

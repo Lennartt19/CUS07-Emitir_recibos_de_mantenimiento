@@ -9,7 +9,7 @@ from schemas.recibo_estado_schema import ReciboEstadoSchema
 class MantReciboSchema(ma.Schema):
     class Meta:
         model = MantRecibo
-        fields = ('id_mant_recibo','id_casa','n_recibo','periodo','fecha_emision','fecha_vencimiento','importe','ajuste','observacion','id_recibo_estado','casa')        
+        fields = ('id_mant_recibo','id_casa','n_recibo','periodo','fecha_emision','fecha_vencimiento','importe','ajuste','observacion','id_recibo_estado','casa','recibo_estado')        
     casa = ma.Nested(CasaSchema)
     recibo_estado = ma.Nested(ReciboEstadoSchema)
 

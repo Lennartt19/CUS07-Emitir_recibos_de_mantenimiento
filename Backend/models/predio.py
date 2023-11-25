@@ -1,4 +1,7 @@
 from utils.db import db
+from models.tipo_predio import TipoPredio
+from models.ubigeo import Ubigeo
+from models.persona import Persona
 
 class Predio(db.Model):
     __tablename__ = 'predio'

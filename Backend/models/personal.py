@@ -1,4 +1,7 @@
 from utils.db import db
+from models.persona import Persona
+from models.rol import Rol
+
 
 class Personal(db.Model):
     id_personal = db.Column(db.Integer, primary_key=True)

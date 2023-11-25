@@ -1,4 +1,8 @@
 from utils.db import db
+from models.predio import Predio
+from models.estado import Estado
+from models.tipo_autorizacion import TipoAutorizacion
+from models.banco import Banco
 
 class CuentaPredio(db.Model):
     __tablename__ = 'cuenta_predio'
